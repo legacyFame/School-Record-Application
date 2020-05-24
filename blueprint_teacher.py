@@ -28,13 +28,15 @@ def login():
     db = json.loads(listing())
     values=[]
     role=''
+    id =''
     for i in db:
         values.append([i['name']])
         if i['name']== login_data[0]:
             role='staff'
+            id = i['id']
             break
 
-    payload = {'username':login_data[0],'role':role,'time':time.time()+3600}  # Logged Out
+    payload = {'username':login_data[0],'id':id,'role':role,'time':time.time()+3600}  # Logged Out
     encode_jwt = jwt.encode(payload, 'hiro')
     return {'auth_token':encode_jwt.decode()} #converts bits to string
 
