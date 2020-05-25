@@ -1,0 +1,27 @@
+Teacher
+
+id  name
+int varchar
+
+Student
+
+id  name   gender class_id section_id
+int varchar varchar int	int
+
+Class
+
+id  name    
+int varchar	
+
+
+Section
+
+id  name      teacher_id
+int varchar	int 
+
+ Relationship
+
+
+student->section one->one
+Section->Teacher many->one
+student->class one->one
